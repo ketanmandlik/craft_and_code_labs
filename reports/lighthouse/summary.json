@@ -1,0 +1,30 @@
+[
+  {
+    "device": "mobile",
+    "measured": "2026-11-26T11:11:45.716Z",
+    "version": "13.6.0",
+    "scores": {
+      "performance": 95,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "LCP": "2.8 s",
+    "TBT": "40 ms",
+    "CLS": "0.054"
+  },
+  {
+    "device": "desktop",
+    "measured": "2026-11-26T11:11:55.838Z",
+    "version": "13.6.0",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "LCP": "0.6 s",
+    "TBT": "0 ms",
+    "CLS": "0.001"
+  }
+]
