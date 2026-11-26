@@ -4,6 +4,7 @@
 import { deflateSync } from 'node:zlib'
 import { writeFileSync } from 'node:fs'
 import { chromium } from 'playwright'
+const { spectrumMaterial } = await import(new URL('../shaders/spectrumMaterial.ts', import.meta.url).href) as typeof import('../shaders/spectrumMaterial')
 const { surface, normal, railCount, tau } = await import(new URL('./ribbonModel.ts', import.meta.url).href)
 const stage=Number(process.argv[2] ?? 0)
 const size=1400, out=700
@@ -20,9 +21,15 @@ function shade(x:number,y:number,z:number, rail:number) {
   const edge=1-smooth(.015,.085,Math.abs(rx-.79))
   const glint=strip*(.66+.34*smooth(-1,.8,rz))+top*.55+edge*.40
   const l=.105+.43*sky+.89*glint+.18*fres
-  const teal=.11+.31*smooth(.75,-.45,ry)*(1-Math.min(1,glint))
-  const accent=rail===9||rail===10 ? .22 : 0
-  return [Math.min(255,255*l*(1-teal-accent)),Math.min(255,255*l*(.99+accent*.26)),Math.min(255,255*l*(.98+teal*.32))]
+  const band=smooth(-.74,.68,rx*.78+ry*.57)
+  const fringe=smooth(.12,.83,fres)*.68
+  const silver=.14+.54*smooth(.30,1.22,glint)
+  const accent=1-smooth(.35,1.5,Math.abs(rail-9.5))
+  const [low,high,rim]=spectrumMaterial[stage]
+  return [.90,.93,1].map((neutral,i)=>{
+    const tint=(low[i]*(1-band)+high[i]*band)*(1-fringe)+rim[i]*fringe
+    return Math.min(255,255*(l*(tint*(1-silver)+neutral*silver)+accent*.07*tint))
+  })
 }
 function vertex(t:number,a:number,r:number){const p=surface(t,a,r,stage), n=normal(t,a,r,stage);return [(size/2+p[0]*scale),(size/2-p[1]*scale),p[2],...n]}
 function triangle(a:number[],b:number[],c:number[],r:number) {

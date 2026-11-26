@@ -29,3 +29,11 @@
 - Resolved direct `#services` navigation after React mounts the section and ScrollTrigger measures the preceding pin. The existing header-height offset keeps the section label and heading clear.
 - Six relevant Playwright tests passed per engine in Chromium and WebKit, covering all six previews, rapid switching, keyboard and touch controls, forward and backward scrolling, direct and menu navigation, and reduced motion at 1440px, 768px and 390px. Native Safari WebDriver required Allow Remote Automation, which is disabled on this machine. Captures are in `reports/services-fix/`.
 - Lint, type checking and production build passed. The existing Vite warning for the lazy WebGL chunk remains.
+
+## Digital Spectrum Visual Upgrade
+
+- Migrated the studio to semantic midnight and soft-white surfaces, spectrum typography, colour-coded services and process stages, and a blue-violet enquiry treatment. Preserved the CL monogram geometry, product concept palettes and official WhatsApp colour.
+- Updated the four-state iridescent material, matching WebP plates, editorial contour artwork and social image. Scene geometry, rendering cadence and lazy-loading behaviour remain in place.
+- Lint, type checking and the production build passed. The full Chromium run passed 18 tests. The relevant WebKit run passed eight tests. Final targeted runs passed three checks in Chromium and four in WebKit. Coverage included rapid switching, intact Web Experiences stacking, 360–1920px layouts, navigation, reduced motion, fallback and enquiry validation.
+- Live Chromium WebGL rendered all four states with zero console errors. All seven intercepted WhatsApp paths passed. Sampled text pairs cleared 4.5:1, including all six service accents on soft white.
+- Captured the desktop hero, iPhone-sized WebKit hero, services, portfolio and contact in `reports/digital-spectrum/`. Testing used WebKit emulation for iPhone. The existing warning for the lazy WebGL chunk remains. Deployment was outside this upgrade.

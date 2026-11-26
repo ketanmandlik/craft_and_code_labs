@@ -1,3 +1,9 @@
+import { spectrumMaterial } from './spectrumMaterial'
+
+const shaderColors = spectrumMaterial.map(colors =>
+  colors.map(color => `vec3(${color.map(value => value.toFixed(2)).join(',')})`).join(',')
+)
+
 export const vertexShader = /* glsl */ `
 attribute float rail;
 uniform float stage;
@@ -40,8 +46,12 @@ void main(){
   gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.0);
 }`
 export const fragmentShader = /* glsl */ `
+uniform float stage;
 varying vec3 vNormal;
 varying float vRail;
+vec3 coating(vec3 low,vec3 high,vec3 rim,float band,float fringe){
+  return mix(mix(low,high,band),rim,fringe);
+}
 void main(){
   vec3 n=normalize(vNormal);
   if(n.z<0.0)n=-n;
@@ -52,7 +62,15 @@ void main(){
   float edge=1.-smoothstep(.015,.085,abs(r.x-.79));
   float glint=strip*(.66+.34*smoothstep(-1.,.8,r.z))+top*.55+edge*.40;
   float l=.105+.43*sky+.89*glint+.18*pow(1.-n.z,2.);
-  float teal=.11+.31*(1.-smoothstep(-.45,.75,r.y))*(1.-min(1.,glint));
-  float accent=abs(vRail-9.5)<1.0 ? .22 : 0.;
-  gl_FragColor=vec4(l*vec3(1.-teal-accent,.99+.26*accent,.98+.32*teal),1.);
+  float fresnel=pow(1.-n.z,2.);
+  float band=smoothstep(-.74,.68,r.x*.78+r.y*.57);
+  float fringe=smoothstep(.12,.83,fresnel)*.68;
+  vec3 tint=coating(${shaderColors[0]},band,fringe);
+  tint=mix(tint,coating(${shaderColors[1]},band,fringe),smoothstep(0.,1.,stage));
+  tint=mix(tint,coating(${shaderColors[2]},band,fringe),smoothstep(1.,2.,stage));
+  tint=mix(tint,coating(${shaderColors[3]},band,fringe),smoothstep(2.,3.,stage));
+  // Keep neutral highlights on the brightest facets so the finish reads as metal.
+  float silver=.14+.54*smoothstep(.30,1.22,glint);
+  float accent=1.-smoothstep(.35,1.5,abs(vRail-9.5));
+  gl_FragColor=vec4(l*mix(tint,vec3(.90,.93,1.),silver)+accent*.07*tint,1.);
 }`

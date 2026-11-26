@@ -22,17 +22,25 @@ function contour(layer, phase, edition = false) {
 }
 
 
+const coatings = [
+  ['#173176','#9ecaff','#3673ed','#273f9a','#c5dafa','#446aea'],
+  ['#352473','#e1c8ff','#9463eb','#543099','#d0bbff','#754ee9'],
+  ['#781254','#ffc4e8','#e354aa','#6c2b91','#fcc0e5','#ae439c'],
+  ['#7e332c','#ffcdad','#ed7459','#873966','#ffd2b9','#d56954'],
+  ['#2c3fd4','#c3c7ff','#8866e8','#422485','#f8a9da','#634be2'],
+]
+const offsets = [0,.22,.39,.61,.78,1]
 for (let phase = 0; phase < 5; phase++) {
   const edition = phase === 4
   const outlines = Array.from({ length: 52 }, (_, layer) =>
     `<path d="${contour(layer, phase, edition)}"/>`).join('')
   const drawing = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350">
-    <defs><linearGradient id="metal"><stop stop-color="#315658"/><stop offset=".22" stop-color="#d0e8df"/><stop offset=".39" stop-color="#6c9591"/><stop offset=".61" stop-color="#1c474b"/><stop offset=".78" stop-color="#b8d1ca"/><stop offset="1" stop-color="#416568"/></linearGradient>
-    <pattern width="18" height="18" patternUnits="userSpaceOnUse" id="grid"><circle cx="1" cy="1" r=".65" fill="#72938b" opacity=".55"/></pattern></defs>
+    <defs><linearGradient id="metal">${coatings[phase].map((color,i)=>`<stop offset="${offsets[i]}" stop-color="${color}"/>`).join('')}</linearGradient>
+    <pattern width="18" height="18" patternUnits="userSpaceOnUse" id="grid"><circle cx="1" cy="1" r=".65" fill="#8e86b5" opacity=".55"/></pattern></defs>
     <rect width="400" height="350" fill="url(#grid)"/>
-    <g fill="none" stroke="#72938b" stroke-width=".6"><path d="M22 175H378 M200 15V335" stroke-dasharray="2 6"/><path d="M31 30h10m-5 -5v10 M359 30h10m-5 -5v10 M31 320h10m-5 -5v10 M359 320h10m-5 -5v10"/>
+    <g fill="none" stroke="#8e86b5" stroke-width=".6"><path d="M22 175H378 M200 15V335" stroke-dasharray="2 6"/><path d="M31 30h10m-5 -5v10 M359 30h10m-5 -5v10 M31 320h10m-5 -5v10 M359 320h10m-5 -5v10"/>
     <ellipse cx="200" cy="175" rx="151" ry="65" transform="rotate(-22 200 175)" stroke-dasharray="3 5"/></g>
-    <g stroke="url(#metal)" stroke-width="1.1" fill="${edition ? '#20383b' : '#0e2024'}">${outlines}</g></svg>`
+    <g stroke="url(#metal)" stroke-width="1.1" fill="${edition ? '#252268' : '#101018'}">${outlines}</g></svg>`
   writeFileSync(`public/assets/studies/contour-${phase}.svg`, drawing)
 }
 

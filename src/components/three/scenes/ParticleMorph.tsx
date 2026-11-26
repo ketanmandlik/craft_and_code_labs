@@ -48,7 +48,7 @@ export default function ParticleMorph({materialRef}: {materialRef: RefObject<Sha
       <primitive object={offcuts} attach="geometry"/>
       <shaderMaterial transparent depthWrite={false} side={DoubleSide} uniforms={uniforms}
         vertexShader={`uniform float stage; void main(){ vec3 p=position; p.xy*=1.-.22*smoothstep(0.,1.,stage); gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.); }`}
-        fragmentShader={`uniform float stage; void main(){gl_FragColor=vec4(.64,.83,.81,.63*(1.-smoothstep(0.,.94,stage)));}`}/>
+        fragmentShader={`uniform float stage; void main(){gl_FragColor=vec4(.58,.65,1.,.63*(1.-smoothstep(0.,.94,stage)));}`}/>
     </mesh>
   </group>
 }

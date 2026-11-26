@@ -1,7 +1,11 @@
 # Design system
 
-The studio uses near-black and deep midnight for the opening and contact, soft white for editorial copy, and muted teal for emphasis. The services and About sections use pale backgrounds to separate dense information from the darker exhibition sections.
+## Digital Spectrum
 
-Space Grotesk supplies the display type, Inter supplies longer copy, and system monospace identifies index numbers and technical detail. Display typography uses fluid type scales, optical line spacing and restrained negative tracking. The dominant mobile CTA sits above the sculpture and remains visible without WebGL.
+`src/styles/spectrum.css` defines the studio palette and its semantic roles. Midnight, surface and elevated tones support the cinematic sections. Soft white and pale lavender separate services, process and About. Electric blue, violet, pink and sunset orange form the signature gradient. Highlighted dark-section headings use a brighter version, with a solid fallback for unsupported clipping and forced-colour environments.
 
-The temporary CL monogram is a replaceable SVG. All product interfaces are original concept demonstrations. Their individual palettes and compositions distinguish browser, booking, assistant, operations, architecture and workflow studies.
+The six services use blue, violet, pink, orange, cyan and gold in that order. Each has a darker companion for labels and active text on pale backgrounds. The process stages use blue, violet, pink and orange. Product mockups retain their individual art direction, and the floating WhatsApp control retains green.
+
+Space Grotesk supplies the display type, Inter supplies longer copy, and system monospace identifies index numbers and technical detail. The dominant mobile CTA sits above the sculpture and remains visible without WebGL.
+
+The current CL monogram keeps its original paths and proportions. White, electric blue and cyan give it contrast on the midnight header. The product interfaces remain original concept demonstrations.

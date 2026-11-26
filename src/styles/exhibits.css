@@ -1,39 +1,39 @@
 .ex-services,.ex-solutions{--ex-mono:ui-monospace,SFMono-Regular,Consolas,monospace;--ex-title:var(--display);position:relative;scroll-margin-top:calc(var(--header-height) + 5px)}
-.ex-services{background:#eef0ea;color:#112322;padding:clamp(76px,9vw,160px) 6vw}
+.ex-services{background:var(--paper);color:var(--ink);padding:clamp(76px,9vw,160px) 6vw}
 .ex-kicker,.ex-concept-copy>small,.ex-service-figure figcaption,.ex-row-trigger small{font:500 .72rem/1.4 var(--ex-mono);letter-spacing:.09em;text-transform:uppercase}
 .ex-kicker{display:flex;align-items:center;gap:12px}
 .ex-kicker>span{width:20px;height:2px;background:currentColor}
 .ex-title{font:500 clamp(3rem,7.6vw,8rem)/.89 var(--ex-title);letter-spacing:-.075em;margin:24px 0 50px}
 .ex-service-layout{display:grid;grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr);gap:6vw;align-items:start}
-.ex-service-row{border-top:1px solid #abb8ae}
-.ex-service-row:last-child{border-bottom:1px solid #abb8ae}
+.ex-service-row{border-top:1px solid var(--line-light)}
+.ex-service-row:last-child{border-bottom:1px solid var(--line-light)}
 .ex-service-row h3,.ex-service-figure,.ex-concept-copy h3,.ex-service-row p{margin:0}
 .ex-row-trigger,.ex-row-detail button,.ex-concept-copy button,.ex-stepper button{background:transparent;border:0;color:inherit;cursor:pointer}
 .ex-row-trigger{width:100%;display:flex;align-items:center;gap:clamp(12px,2vw,28px);text-align:left;padding:clamp(16px,1.45vw,24px) 0;font:500 clamp(1.2rem,2.25vw,2.5rem)/1.15 var(--ex-title);letter-spacing:-.045em}
 .ex-row-trigger svg{width:18px;margin-left:auto;transition:transform .2s}
 .ex-row-trigger:hover svg{transform:rotate(90deg)}
-.ex-row-trigger small{color:#53675f;font-size:.7rem}
-.ex-service-row.is-active .ex-row-trigger{color:#256454}
+.ex-row-trigger small{color:var(--muted-light);font-size:.7rem}
+.ex-service-row.is-active .ex-row-trigger{color:var(--service-ink)}
 .ex-row-detail{padding:0 22px 22px clamp(28px,3.5vw,52px)}
 .ex-row-detail p,.ex-concept-copy p{max-width:42ch;font:400 1rem/1.6 var(--body)}
 .ex-row-detail button,.ex-concept-copy button{display:inline-flex;align-items:center;gap:6px;font:600 .83rem/1.4 var(--body);padding:10px 0 5px;margin-top:6px;border-bottom:1px solid currentColor}
-.ex-service-figure figcaption{font-size:.68rem;display:flex;justify-content:space-between;gap:12px;margin-top:14px;color:#43584f}
-.ex-solutions{background:#071416;color:#eff2eb;padding:clamp(64px,9vh,120px) 0 clamp(50px,7vh,90px);overflow:clip}
+.ex-service-figure figcaption{font-size:.68rem;display:flex;justify-content:space-between;gap:12px;margin-top:14px;color:var(--muted-light)}
+.ex-solutions{background:var(--midnight);color:var(--paper);padding:clamp(64px,9vh,120px) 0 clamp(50px,7vh,90px);overflow:clip}
 .ex-solution-head{margin:0 6vw 22px;display:flex;align-items:flex-end;gap:20px;justify-content:space-between}
 .ex-solutions .ex-title{font-size:clamp(2.8rem,6vw,7rem);margin:16px 0 0}
 .ex-stepper{display:flex;gap:6px}
-.ex-stepper button{border:1px solid #526765;border-radius:50%;width:44px;height:44px;display:grid;place-items:center;transition:background .2s}
-.ex-stepper button:hover{background:#28413f}
+.ex-stepper button{border:1px solid var(--line-control);border-radius:50%;width:44px;height:44px;display:grid;place-items:center;transition:background .2s}
+.ex-stepper button:hover{background:var(--elevated)}
 .ex-stepper svg{width:17px}
-.ex-viewport{margin:0 6vw;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#597e76 transparent}
+.ex-viewport{margin:0 6vw;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--line-control) transparent}
 .ex-viewport.ex-pinned{overflow:clip;scroll-snap-type:none}
 .ex-track{display:flex;gap:2vw;position:relative;width:100%}
-.ex-concept{flex:0 0 90%;scroll-snap-align:start;display:grid;grid-template-columns:1.4fr 1fr;border-block:1px solid #354b49;padding:20px 0;align-items:center}
+.ex-concept{flex:0 0 90%;scroll-snap-align:start;display:grid;grid-template-columns:1.4fr 1fr;border-block:1px solid var(--line);padding:20px 0;align-items:center}
 .ex-concept:last-child{flex-basis:100%}
 .ex-concept-copy{padding:3vw;min-width:0}
 .ex-concept-copy h3{font:500 clamp(1.9rem,3.8vw,5rem)/.99 var(--ex-title);letter-spacing:-.06em;margin:18px 0}
-.ex-concept-copy p{color:#c0cdc7}
-.ex-concept-copy>small{color:#a7c9c9}
+.ex-concept-copy p{color:var(--muted-dark)}
+.ex-concept-copy>small{color:var(--accent-light)}
 .ex-study{position:relative;display:grid;place-items:center;isolation:isolate;overflow:hidden;aspect-ratio:1.22;color:#162d29;background-color:#b9cab8;background-image:linear-gradient(119deg,transparent 44%,#ffffff26 44.1%,transparent 74%),repeating-linear-gradient(139deg,#eff7df33 0px,#eff7df33 1px,transparent 1px,transparent 22px)}
 .ex-concept .ex-study{aspect-ratio:1.45;max-height:54vh}
 .ex-study-1{background-color:#889d86}.ex-study-2{background-color:#8caeae}.ex-study-3{background-color:#a1acbf}.ex-study-4{background-color:#718e8d}.ex-study-5{background-color:#c5bfa8}
@@ -102,9 +102,9 @@
 .ex-title,.ex-concept-copy h3{letter-spacing:var(--display-tracking);line-height:1.01}
 .ex-kicker,.ex-concept-copy>small,.ex-service-figure figcaption{font-size:.75rem}
 .ex-stepper{align-items:center}
-.ex-counter{font:500 .75rem var(--ex-mono);color:#bad6d2;white-space:nowrap;margin-right:.5rem}
+.ex-counter{font:500 .75rem var(--ex-mono);color:var(--accent-light);white-space:nowrap;margin-right:.5rem}
 .ex-stepper [aria-disabled=true]{opacity:.48;cursor:default}
-.ex-concept[data-active=true]{border-top-color:#91b4ad}
+.ex-concept[data-active=true]{border-top-color:var(--violet)}
 @media(max-width:760px){.ex-solution-head{align-items:flex-start;flex-direction:column;gap:14px}.ex-solutions .ex-title{max-width:none}}
 
 /* Give each interface study its own framing and motion. */
@@ -138,3 +138,32 @@
 .ex-worknode:nth-child(4):after{animation-delay:.5s}
 @keyframes ex-execute{0%{transform:scaleX(0)}40%,100%{transform:scaleX(1)}}
 @media(prefers-reduced-motion:reduce){.ex-neural path,.ex-worknode:after,.ex-metric,.ex-study-0 .ex-study-plane:before,.ex-study-0 .ex-study-plane:after{animation:none}}
+
+/* The studio colour surrounds each service. Product interfaces keep their own art direction. */
+.ex-services{--service-accent:var(--blue);--service-ink:var(--blue-ink);--service-shadow:var(--violet)}
+.ex-services[data-service="1"],.ex-services .ex-study-1{--service-accent:var(--violet);--service-ink:var(--violet-ink);--service-shadow:var(--blue)}
+.ex-services[data-service="2"],.ex-services .ex-study-2{--service-accent:var(--pink);--service-ink:var(--pink-ink);--service-shadow:var(--violet)}
+.ex-services[data-service="3"],.ex-services .ex-study-3{--service-accent:var(--orange);--service-ink:var(--orange-ink);--service-shadow:var(--pink)}
+.ex-services[data-service="4"],.ex-services .ex-study-4{--service-accent:var(--cyan);--service-ink:var(--cyan-ink);--service-shadow:var(--blue)}
+.ex-services[data-service="5"],.ex-services .ex-study-5{--service-accent:var(--gold);--service-ink:var(--gold-ink);--service-shadow:var(--orange)}
+.ex-services .ex-study-0{--service-accent:var(--blue);--service-ink:var(--blue-ink);--service-shadow:var(--violet)}
+.ex-services .ex-kicker>span{background:var(--service-accent);transition:background-color .35s}
+.ex-service-row.is-active .ex-row-trigger{color:var(--service-ink);transition:color .28s}
+.ex-services .ex-study{
+  color:var(--ink);background-color:var(--paper-alt);
+  background-color:color-mix(in srgb,var(--service-accent) 19%,var(--paper));
+  background-image:linear-gradient(132deg,transparent 29%,color-mix(in srgb,var(--service-shadow) 16%,transparent)),repeating-linear-gradient(139deg,#ffffff44 0 1px,transparent 1px 22px);
+}
+.ex-services .ex-study-plane{animation-name:ex-service-in}
+.ex-services .ex-service-figure{
+  background:var(--paper-alt);
+  background-color:color-mix(in srgb,var(--service-accent) 19%,var(--paper));
+  transition:background-color .35s;
+}
+.ex-services .ex-service-figure .ex-study{background-color:transparent}
+.ex-services .ex-service-figure figcaption{padding:0 .85rem .8rem}
+.ex-services :is(.ex-corner,.ex-register){border-color:var(--service-ink);color:var(--service-ink)}
+.ex-services .ex-neural{fill:var(--service-ink);stroke:var(--service-ink)}
+.ex-concept .ex-study{box-shadow:0 0 48px -16px var(--atmos-violet)}
+@keyframes ex-service-in{from{opacity:.5;translate:0 9px}to{opacity:1;translate:0 0}}
+@media(prefers-reduced-motion:reduce){.ex-services .ex-study-plane{animation:none}}

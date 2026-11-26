@@ -23,7 +23,7 @@ export default function InteractiveServiceList({onEnquire}: EnquiryProps) {
     return () => cancelAnimationFrame(frame)
   }, [])
   const service = services[active]
-  return <section ref={section} className="ex-services" id="services" aria-labelledby="service-title">
+  return <section ref={section} className="ex-services" id="services" data-service={active} aria-labelledby="service-title">
     <div className="ex-kicker"><span/> Studio capabilities</div>
     <h2 id="service-title" className="ex-title">WHAT WE<br/>MAKE POSSIBLE.</h2>
     <div className="ex-service-layout">

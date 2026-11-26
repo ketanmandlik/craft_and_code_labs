@@ -5,7 +5,7 @@ test('mobile entry contrast during and after reveal, and unobscured anchor navig
   await page.goto('/');
   await page.getByRole('button',{name:/skip intro/i}).click();
   for(const selector of ['.hero h1 .text-mask:nth-child(1)','.hero h1 .text-mask:nth-child(2)','.mast .brand','.menu-btn','.nav-project','.hero .quiet']){
-    await expect(page.locator(selector)).toHaveCSS('color','rgb(243, 244, 244)');
+    await expect(page.locator(selector)).toHaveCSS('color','rgb(245, 245, 250)');
   }
   await page.getByRole('button',{name:'Menu',exact:true}).click();
   await expect(page.getByRole('dialog')).toContainText('Turn Ideas Into Innovation.');

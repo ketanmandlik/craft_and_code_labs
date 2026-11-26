@@ -82,7 +82,7 @@ function Process() {
     nodes.forEach(node => observer.observe(node))
     return () => observer.disconnect()
   }, [])
-  return <section id="process" className="ed-process ed-section" ref={root}>
+  return <section id="process" data-phase={phase} className="ed-process ed-section" ref={root}>
     <div className="ed-kicker"><span>07 / PROCESS</span><span>METHOD OF WORK</span></div>
     <h2 className="ed-title">FROM WHAT IF<br/>TO WHAT'S NEXT.</h2>
     <div className="ed-process-layout">
@@ -92,7 +92,7 @@ function Process() {
         <div className="ed-plate-footer"><span>{stages[phase][0]}</span><i style={{transform: `scaleX(${(phase+1)/4})`}}/></div>
       </figure>
       <ol className="ed-steps">
-        {stages.map(([name, copy], index) => <li className={'ed-step' + (phase === index ? ' is-current' : '')} key={name}>
+        {stages.map(([name, copy], index) => <li data-phase={index} className={'ed-step' + (phase === index ? ' is-current' : '')} key={name}>
           <span className="ed-index">{sectionNumber(index)}</span><div><h3>{name}</h3><p>{copy}</p></div>
         </li>)}
       </ol>
@@ -106,7 +106,7 @@ function Technology() {
     <h2 className="ed-title" id="ed-tech-title">POWERED BY<br/>MODERN ENGINEERING.</h2>
     <div className="ed-stack">{layers.map(({title, icon: Icon, tools}) => <div className="ed-layer" key={title}>
       <h3><Icon aria-hidden="true" size={17}/>{title}</h3>
-      <ul>{tools.map(tool => <li key={tool}>{marks[tool] && <svg aria-hidden="true"><use href={`/assets/studies/technology.svg#${marks[tool]}`}/></svg>}{tool}</li>)}</ul>
+      <ul>{tools.map(tool => <li key={tool}>{marks[tool] && <svg aria-hidden="true" data-mark={marks[tool]}><use href={`/assets/studies/technology.svg#${marks[tool]}`}/></svg>}{tool}</li>)}</ul>
     </div>)}</div>
   </section>
 }
